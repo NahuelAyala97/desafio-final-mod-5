@@ -22,7 +22,7 @@ const routes = [
 	},
 ];
 
-const BASE_PATH = "/desafio-m5";
+const BASE_PATH = "/desafio-final-mod-5";
 
 function isGithubPages() {
 	return location.host.includes("github.io");
