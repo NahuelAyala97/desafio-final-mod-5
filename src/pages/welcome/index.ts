@@ -71,7 +71,7 @@ export function initWelcomePage(params) {
 
 	const button = div.querySelector(".button");
 	button?.addEventListener("click", (e) => {
-		params.goTo("./roules");
+		params.goTo("/desafio-final-mod-5/roules");
 	});
 
 	return div;

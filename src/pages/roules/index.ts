@@ -70,7 +70,7 @@ export function initRoulesPage(params) {
 	const button = div.querySelector(".button");
 	button?.addEventListener("click", (e) => {
 		state.resetMove();
-		params.goTo("./start");
+		params.goTo("/desafio-final-mod-5/start");
 	});
 
 	return div;

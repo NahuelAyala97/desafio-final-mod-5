@@ -43,7 +43,7 @@ export function initGamePage(params) {
 					}
 				}
 
-				params.goTo("/results");
+				params.goTo("/desafio-final-mod-5/results");
 				clearInterval(interval);
 			}
 			return counter;

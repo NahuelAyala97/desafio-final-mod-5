@@ -26,7 +26,7 @@ export function initResultsPage(params) {
 
 	const button = div.querySelector(".button");
 	button?.addEventListener("click", (e) => {
-		params.goTo("/roules");
+		params.goTo("/desafio-final-mod-5/roules");
 	});
 
 	const buttonReset = div.querySelector(".reset");
@@ -72,13 +72,13 @@ export function initResultsPage(params) {
 			resultPage.textContent = "EMPATE";
 			setHands();
 			setTimeout(() => {
-				params.goTo("/roules");
+				params.goTo("/desafio-final-mod-5/roules");
 			}, 2000);
 		} else if (result == "error") {
 			resultPage?.classList.add("error");
 			resultPage.textContent = "ERROR";
 			setTimeout(() => {
-				params.goTo("/roules");
+				params.goTo("/desafio-final-mod-5/roules");
 			}, 2000);
 		}
 
