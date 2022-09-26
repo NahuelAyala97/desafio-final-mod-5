@@ -48,7 +48,7 @@ export function initRouter(container) {
 		}
 	}
 
-	if (location.pathname == "/") {
+	if (location.pathname == "/desafio-final-mod-5") {
 		goTo("/welcome");
 	} else {
 		handlerRoute(location.pathname);
