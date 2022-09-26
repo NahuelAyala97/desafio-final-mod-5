@@ -5,40 +5,32 @@ import { initGamePage } from "./pages/game";
 
 const routes = [
 	{
-		path: /\/welcome/,
+		path: /\/desafio-final-mod-5\/welcome/,
 		handler: initWelcomePage,
 	},
 	{
-		path: /\/roules/,
+		path: /\/desafio-final-mod-5\/roules/,
 		handler: initRoulesPage,
 	},
 	{
-		path: /\/start/,
+		path: /\/desafio-final-mod-5\/start/,
 		handler: initGamePage,
 	},
 	{
-		path: /\/results/,
+		path: /\/desafio-final-mod-5\/results/,
 		handler: initResultsPage,
 	},
 ];
 
-const BASE_PATH = "/desafio-final-mod-5";
-
-function isGithubPages() {
-	return location.host.includes("github.io");
-}
-
 export function initRouter(container) {
 	function goTo(path: string) {
-		const completePath = isGithubPages() ? BASE_PATH + path : path;
-		history.pushState({}, "", completePath);
-		handlerRoute(completePath);
+		history.pushState({}, "", path);
+		handlerRoute(path);
 	}
 
 	function handlerRoute(route: string) {
-		const newRoute = isGithubPages() ? route.replace(BASE_PATH, "") : route;
 		for (let r of routes) {
-			if (r.path.test(newRoute)) {
+			if (r.path.test(route)) {
 				let element = r.handler({ goTo: goTo });
 				if (container.firstChild) {
 					container.firstChild.remove();
@@ -48,8 +40,8 @@ export function initRouter(container) {
 		}
 	}
 
-	if (location.pathname == "/desafio-final-mod-5") {
-		goTo("/welcome");
+	if (location.pathname == "/desafio-final-mod-5/") {
+		goTo("/desafio-final-mod-5/welcome");
 	} else {
 		handlerRoute(location.pathname);
 	}
