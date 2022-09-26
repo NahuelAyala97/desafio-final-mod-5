@@ -6,11 +6,13 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@types/node": "^18.7.18",
+		"gh-pages": "^4.0.0",
 		"parcel": "^2.7.0"
 	},
 	"source": "src/index.html",
 	"scripts": {
 		"dev": "parcel",
-		"build": "parcel build"
+		"build": "parcel build --dist-dir build --public-url /desafio-final-mod-5",
+		"deploy": "gh-pages -d build"
 	}
 }

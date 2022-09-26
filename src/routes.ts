@@ -22,15 +22,23 @@ const routes = [
 	},
 ];
 
+const BASE_PATH = "/desafio-m5";
+
+function isGithubPages() {
+	return location.host.includes("github.io");
+}
+
 export function initRouter(container) {
 	function goTo(path: string) {
-		history.pushState({}, "", path);
-		handlerRoute(path);
+		const completePath = isGithubPages() ? BASE_PATH + path : path;
+		history.pushState({}, "", completePath);
+		handlerRoute(completePath);
 	}
 
 	function handlerRoute(route: string) {
+		const newRoute = isGithubPages() ? route.replace(BASE_PATH, "") : route;
 		for (let r of routes) {
-			if (r.path.test(route)) {
+			if (r.path.test(newRoute)) {
 				let element = r.handler({ goTo: goTo });
 				if (container.firstChild) {
 					container.firstChild.remove();
